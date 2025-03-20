@@ -20,6 +20,9 @@ type Priority string
 
 const (
 	// ここにPriorityLow, PriorityMedium, PriorityHighを定義してください
+	PriorityLow Priority = 'low'
+	PriorityMedium Priority = 'medium'
+	PriorityHigh Priority = 'high'
 )
 
 // TodoCreate型の定義
