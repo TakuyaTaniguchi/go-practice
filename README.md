@@ -28,6 +28,19 @@ go get -u github.com/gorilla/mux
 # Run development server
 go run app/main.go
 ```
+### 環境の実行方法：
+1. サーバーの実行: go run app/main.go
+2. クライアントの実行: go run client.go（別ターミナルで）
+3. 演習ファイルの実行: go run exercises/ex1_basic_models_solution.go
+
+この環境には以下が含まれています：
+- ルーティングやハンドラを備えたRESTful APIサーバー
+- サンプルモデルと演習用ファイル
+- APIをテストするためのクライアント
+- シンプルなテストファイル
+
+
+
 
 ## Testing
 Once the server is running, you can:

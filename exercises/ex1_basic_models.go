@@ -20,9 +20,9 @@ type Priority string
 
 const (
 	// ここにPriorityLow, PriorityMedium, PriorityHighを定義してください
-	PriorityLow Priority = 'low'
-	PriorityMedium Priority = 'medium'
-	PriorityHigh Priority = 'high'
+	PriorityLow    Priority = "low"
+	PriorityMedium Priority = "medium"
+	PriorityHigh   Priority = "high"
 )
 
 // TodoCreate型の定義
@@ -36,6 +36,10 @@ const (
 // TODO: ここにTodoCreate構造体を実装
 type TodoCreate struct {
 	// ここにフィールドを定義してください
+	Title       string   `json:"title"`
+	Description string   `json:"description,omitempty"`
+	Priority    Priority `json:"priority"`
+	Completed   bool     `json:"completed"`
 }
 
 // Todo型の定義
@@ -46,36 +50,29 @@ type TodoCreate struct {
 // TODO: ここにTodo構造体を実装
 type Todo struct {
 	// ここにIDフィールドと埋め込みを定義してください
+	Id int `json:"id"`
+	TodoCreate
 }
 
 // サンプル解答の確認用関数
 func main() {
-	// 解答を確認するために使用するコード
-	// 実装したら、以下のコメントを外して実行してみてください
-
-	/*
-	// TodoCreateの作成と確認
 	todoCreate := TodoCreate{
-		Title:       "牛乳を買う",
-		Description: "帰りにスーパーで",
-		Priority:    PriorityHigh,
+		Title:       "Title",
+		Description: "Description",
+		Priority:    PriorityMedium,
 		Completed:   false,
 	}
-	
-	// JSONに変換して出力
-	jsonData, _ := json.MarshalIndent(todoCreate, "", "  ")
-	fmt.Println("TodoCreate:")
-	fmt.Println(string(jsonData))
-	
-	// Todoの作成と確認
+
 	todo := Todo{
 		TodoCreate: todoCreate,
 		ID:         "1",
 	}
-	
-	// JSONに変換して出力
-	jsonData, _ = json.MarshalIndent(todo, "", "  ")
-	fmt.Println("\nTodo:")
-	fmt.Println(string(jsonData))
-	*/
+
+	b, err := json.Marshal(todo)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	fmt.Println(string(b))
 }
