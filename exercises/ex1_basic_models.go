@@ -65,7 +65,7 @@ func main() {
 
 	todo := Todo{
 		TodoCreate: todoCreate,
-		ID:         "1",
+		Id:         1,
 	}
 
 	b, err := json.Marshal(todo)
