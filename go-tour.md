@@ -28,6 +28,12 @@ return x + y
 - 基本的にGOは値渡しであり、元の値を変えたいときは、明示してポインタを記述する"&c,*Person "
 
 ```go
+
+func swap(x, y string) (string, string) {
+return y, x
+}
+
+
 type Person struct {
 Name    string
 Age     int
@@ -55,4 +61,31 @@ func main() {
     changeAddress(&c)
     fmt.Println(c) // {Taro 20 京都府京都市 男性}
 }
+```
+
+
+GOは言語仕様で複数の戻り値を持つことができる。
+jsなどでは、一度オブジェクトにするが、Goではその必要がない。
+
+名前付き戻り値の主なメリットは、
+
+関数の定義を見るだけで、どんな値が返るのか分かりやすい
+長い関数で、戻り値の変数に途中で値を代入しておける
+空の return 文だけで、現在の名前付き変数の値が返される
+
+```go
+
+// Goでの複数の戻り値
+func getValues() (int, string) {
+    return 42, "hello"
+}
+
+a, b := getValues() // a=42, b="hello"
+
+func getValues() (num int, text string) {
+num = 42
+text = "hello"
+return  // 空のreturnでOK
+}
+
 ```
