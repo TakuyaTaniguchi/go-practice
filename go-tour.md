@@ -142,3 +142,60 @@ func main() {
 
 ### if
 
+
+少し番外編
+このコードは下記のようなエラーが出る。
+
+```go
+./prog.go:9:9: too many return values
+	have (int)
+	want ()
+./prog.go:13:10: ageLimit(10) (no value) used as value
+
+```
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+
+func ageLimit(age int) {
+	return age
+}
+
+func main() {
+	test := ageLimit(10)
+	fmt.Println(test)
+}
+
+```
+
+エラーの読み方
+
+```go
+「too many return values」というエラーメッセージの意味は、「関数が宣言されている戻り値の数より多くの値を返そうとしている」ということです。
+have は「対象のコードが実際に返そうとしている値の型」
+want は「関数宣言で指定された戻り値の型」
+```
+
+
+動くコード
+
+```go
+func ageLimit(age int) string {
+	if age > 20 {
+		return "OK"
+	} else {
+		return "NG"
+	}
+	
+}
+
+func main() {
+	test := ageLimit(100)
+	fmt.Println(test)
+}
+```
