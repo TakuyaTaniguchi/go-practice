@@ -89,3 +89,19 @@ return  // 空のreturnでOK
 }
 
 ```
+
+文字列変換について
+GOでは 型(値)で変換できるが、文字列はUnicodeになるのでライブラリを使う。
+メソッド名がItos(int to string)ではないのは、伝統的に、C言語では、ASCIIを使っているため
+```go
+
+
+func main() {
+    var id  int = 100
+    mozi  := strconv.Itoa(id)
+    fmt.Print(mozi)
+
+}
+
+
+```
