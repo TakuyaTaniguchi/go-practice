@@ -107,3 +107,38 @@ func main() {
 ```
 
 変数について`var` `const`はjsとあまり変わらない。強いて言えばconstは`:=`が使えない。
+
+### for
+for 分の引数はカンマではなくセミコロン
+
+初期化と後処理は省略できる。（whileみたいなもの）
+条件式の評価が false となった場合にイテレーションを停止する
+
+```go
+func main() {
+	sum := 10
+	for i:=0; i<sum; i++ {
+        fmt.Println(i)
+	}
+}
+
+
+func main() {
+    sum := 1
+    for sum < 1000; {
+        sum += sum
+    }
+    fmt.Println(sum)
+}
+
+//　無限ループ
+
+func main() {
+    for {
+    }
+}
+
+```
+
+### if
+
