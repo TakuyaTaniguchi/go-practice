@@ -199,3 +199,19 @@ func main() {
 	fmt.Println(test)
 }
 ```
+
+条件前にステートメントをかける。
+この場合`add`はif内でしか参照できないので、スコープを絞ることができる。
+```go
+
+func ageLimit(age int) string {
+    if add := age; + 10 > 20 {
+        fmt.Println(add)
+        return "OK"
+    } else {
+        return "NG"
+    }
+
+}
+
+```
